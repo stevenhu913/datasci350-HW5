@@ -1,0 +1,20 @@
+---
+title: "World Development Indicators Analysis (2022)"
+author: "Steven Hu"
+date: today
+format:
+  html:
+    code-fold: true
+  pdf:
+    documentclass: article
+execute:
+  echo: false
+editor: visual
+bibliography: references.bib
+---
+
+# Introduction
+
+This report analyzes selected indicators from the World Development Indicators dataset for 2022. The goal is to explore relationships between economic and development variables.
+
+# Load Data

@@ -1,0 +1,53 @@
+---
+title: "WDI 2022 Snapshot"
+author: "Steven Hu"
+format:
+  revealjs:
+    theme: dark
+    transition: slide
+execute:
+  echo: false
+---
+
+## Goal
+
+Analyze development indicators across countries (2022):
+
+- GDP per capita
+- Life expectancy
+- Total population
+
+## Key Summary
+
+We summarize the main indicators using summary statistics.
+
+## GDP vs Life Expectancy
+
+Next, we visualize the relationship between GDP per capita and life expectancy.
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("wdi.csv")
+
+plt.figure()
+plt.scatter(df["gdp_per_capita"], df["life_expectancy"])
+plt.xlabel("GDP per capita (USD)")
+plt.ylabel("Life expectancy (years)")
+plt.title("GDP per capita vs Life Expectancy")
+plt.show()
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("wdi.csv")
+top10 = df.sort_values("total_population", ascending=False).head(10)
+
+plt.figure()
+plt.bar(top10["country"], top10["total_population"])
+plt.xticks(rotation=45)
+plt.xlabel("Country")
+plt.ylabel("Population")
+plt.title("Top 10 Countries by Population")
+plt.show()
