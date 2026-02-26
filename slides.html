@@ -147,19 +147,47 @@ Steven Hu
 <li>Total population</li>
 </ul>
 </section>
-<section id="key-summary" class="slide level2">
-<h2>Key Summary</h2>
-<p>We summarize the main indicators using summary statistics.</p>
+<section id="load-data" class="slide level2">
+<h2>Load Data</h2>
+<div id="18a0cf7e" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(217, 14)</code></pre>
+</div>
+</div>
 </section>
 <section id="gdp-vs-life-expectancy" class="slide level2">
 <h2>GDP vs Life Expectancy</h2>
-<p>Next, we visualize the relationship between GDP per capita and life expectancy.</p>
-<p>import pandas as pd import matplotlib.pyplot as plt</p>
-<p>df = pd.read_csv(“wdi.csv”)</p>
-<p>plt.figure() plt.scatter(df[“gdp_per_capita”], df[“life_expectancy”]) plt.xlabel(“GDP per capita (USD)”) plt.ylabel(“Life expectancy (years)”) plt.title(“GDP per capita vs Life Expectancy”) plt.show()</p>
-<p>import pandas as pd import matplotlib.pyplot as plt</p>
-<p>df = pd.read_csv(“wdi.csv”) top10 = df.sort_values(“total_population”, ascending=False).head(10)</p>
-<p>plt.figure() plt.bar(top10[“country”], top10[“total_population”]) plt.xticks(rotation=45) plt.xlabel(“Country”) plt.ylabel(“Population”) plt.title(“Top 10 Countries by Population”) plt.show()</p>
+<div id="e9cca730" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-3-output-1.png" width="808" height="449"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="top-10-countries-by-population" class="slide level2">
+<h2>Top 10 Countries by Population</h2>
+<div id="c87839f8" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/cell-4-output-1.png" width="812" height="535"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="takeaways" class="slide level2">
+<h2>Takeaways</h2>
+<ul>
+<li>Higher GDP per capita often aligns with higher life expectancy (overall trend)</li>
+<li>Population is concentrated in a small number of countries</li>
+</ul>
+</section>
+<section id="thank-you" class="slide level2">
+<h2>Thank you</h2>
 
 </section>
     </div>

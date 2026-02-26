@@ -17,31 +17,30 @@ Analyze development indicators across countries (2022):
 - Life expectancy
 - Total population
 
-## Key Summary
-
-We summarize the main indicators using summary statistics.
-
-## GDP vs Life Expectancy
-
-Next, we visualize the relationship between GDP per capita and life expectancy.
+## Load Data
 
 ```{python}
 import pandas as pd
 import matplotlib.pyplot as plt
 
 df = pd.read_csv("wdi.csv")
+df.shape
+```
 
+## GDP vs Life Expectancy
+
+```{python}
 plt.figure()
 plt.scatter(df["gdp_per_capita"], df["life_expectancy"])
 plt.xlabel("GDP per capita (USD)")
 plt.ylabel("Life expectancy (years)")
 plt.title("GDP per capita vs Life Expectancy")
 plt.show()
+```
 
-import pandas as pd
-import matplotlib.pyplot as plt
+## Top 10 Countries by Population
 
-df = pd.read_csv("wdi.csv")
+```{python}
 top10 = df.sort_values("total_population", ascending=False).head(10)
 
 plt.figure()
@@ -51,3 +50,11 @@ plt.xlabel("Country")
 plt.ylabel("Population")
 plt.title("Top 10 Countries by Population")
 plt.show()
+```
+
+## Takeaways
+
+- Higher GDP per capita often aligns with higher life expectancy (overall trend)
+- Population is concentrated in a small number of countries
+
+## Thank you
