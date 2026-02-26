@@ -9,7 +9,6 @@ format:
     documentclass: article
 execute:
   echo: false
-editor: visual
 bibliography: references.bib
 ---
 
@@ -18,3 +17,66 @@ bibliography: references.bib
 This report analyzes selected indicators from the World Development Indicators dataset for 2022. The goal is to explore relationships between economic and development variables.
 
 # Load Data
+
+```{python}
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv("wdi.csv")
+df.head()
+```
+
+# Exploratory Data Analysis
+
+## Summary Statistics
+
+```{python}
+cols = ["gdp_per_capita", "life_expectancy", "total_population"]
+summary = df[cols].describe()
+summary
+```
+
+Table @tbl-summary shows summary statistics of GDP per capita, life expectancy, and population.
+
+```{python}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics of selected development indicators"
+summary
+```
+
+## GDP per Capita vs Life Expectancy
+
+Figure @fig-scatter shows the relationship between GDP per capita and life expectancy.
+
+```{python}
+#| label: fig-scatter
+#| fig-cap: "Relationship between GDP per capita and life expectancy"
+
+plt.figure()
+plt.scatter(df["gdp_per_capita"], df["life_expectancy"])
+plt.xlabel("GDP per capita (USD)")
+plt.ylabel("Life expectancy (years)")
+plt.title("GDP per capita vs Life Expectancy")
+plt.show()
+```
+
+## Top 10 Countries by Population
+
+Figure @fig-bar shows the countries with the largest populations.
+
+```{python}
+#| label: fig-bar
+#| fig-cap: "Top 10 countries by total population"
+
+top10 = df.sort_values("total_population", ascending=False).head(10)
+
+plt.figure()
+plt.bar(top10["country"], top10["total_population"])
+plt.xticks(rotation=45)
+plt.xlabel("Country")
+plt.ylabel("Population")
+plt.title("Top 10 Countries by Population")
+plt.show()
+```
+
+# References
